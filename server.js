@@ -13,6 +13,9 @@ app.prepare().then(() => {
     server.use('/api', createProxyMiddleware({
         target: "http://13.232.228.155:8000",
         changeOrigin: true,
+        pathRewrite: {
+            '^/api': '', // Remove the '/api' prefix when forwarding the request
+        },
     }));
 
     // Handle all other requests
@@ -21,7 +24,7 @@ app.prepare().then(() => {
     });
 
     // Start the server
-    server.listen(443, (err) => {
+    server.listen(3000, (err) => {
         if (err) {
             throw err;
         }
