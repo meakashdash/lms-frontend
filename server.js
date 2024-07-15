@@ -19,7 +19,7 @@ app.prepare().then(()=>{
         //use this middleware when we hit /api call or backend call then create a proxy server on this target
         //to make it as a same origin
         server.use('/api',createProxyMiddleware({
-            target:"http://localhost:8000",
+            target:"http://13.232.228.155:8000",
             changeOrigin:true,
         }))
     }
@@ -34,7 +34,7 @@ app.prepare().then(()=>{
         if(err){
             throw err
         }
-        console.log("Ready on http://localhost:3000")
+        console.log("Ready on http://13.232.228.155:3000")
     })
 }).catch(err=>{
     console.log('Error:',err)
